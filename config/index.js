@@ -10,7 +10,7 @@ module.exports = {
     copyright: 'Quill enforces no copyright over any content published by its users, and serves only as a conduit through which they share their story.',
     masthead: 'https://www.roleplaygateway.com/images/sea-of-stars.jpg',
     cta: {
-      component: '<maki-waiting-list></maki-waiting-list>'
+      component: '<maki-waiting-list src="/subscriptions"></maki-waiting-list>'
     },
     /*cta: {
       link: '/universes',
