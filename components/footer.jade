@@ -1,0 +1,30 @@
+dom-module#maki-footer
+  template
+    .ui.stackable.inverted.divided.equal.height.stackable.grid
+      .four.wide.column
+        h4.ui.inverted.header Elsewhere
+        .ui.inverted.link.list
+          a.item(href="https://github.com/RolePlayGateway/quill", rel="me")
+            i.icon.github
+            |  GitHub
+          a.item(href="https://twitter.com/RolePlayGateway", rel="me")
+            i.icon.twitter
+            |  Twitter
+          a.item(href="https://facebook.com/RolePlayGateway", rel="me")
+            i.icon.facebook
+            |  Facebook
+      .eight.wide.column
+        h4.ui.inverted.header About
+        p !{config.service.about}
+      .four.wide.column
+        h4.ui.inverted.header
+          i.icon.copyright
+        p !{config.service.copyright}
+
+  script.
+    Polymer({
+      is: 'maki-footer',
+      ready: function() {
+        console.log('[MAKI:FOOTER]', 'ready');
+      }
+    });

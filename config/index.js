@@ -6,8 +6,8 @@ module.exports = {
     synopsis: 'Write better, together.', // and this...
     mission: 'Design your own universe with Quill\'s collaboration engine.', // also
     description: 'RolePlayGateway helps you collaborate with fellow writers to create your own world. We\'ve created a set of roleplaying tools to help you organize your worlds and write with your fellow authors.',
-    about: 'Quill is designed <strong>with <i class="heart icon"></i>love</strong> by a caring community of creators from all around the world.  Made with Maki.',
-    copyright: 'Quill enforces no copyright over any content published by its users, and serves only as a conduit through which they share their story.',
+    about: 'Quill is built with <i class="heart icon"></i><em>love</em> by <a href="https://maki.io/people">a diverse community of makers</a> from all around the world.  We\'re designing an all-new way to publish things on the web.  <a href="https://maki.io/topics/quill">Learn More &raquo;</a>',
+    copyright: '&copy; 2017 Quill, Inc.<br /><small>All Rights Reserved.</small>',
     masthead: 'https://www.roleplaygateway.com/images/sea-of-stars.jpg',
     cta: {
       component: '<maki-waiting-list src="/subscriptions"></maki-waiting-list>'
