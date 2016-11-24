@@ -2,10 +2,10 @@ module.exports = {
   service: {
     name: 'Quill', // change this!
     icon: 'pencil', // pick from: http://semantic-ui.com/elements/icon.html
-    pitch: 'Create Worlds Together.',
-    synopsis: 'Write better, together.', // and this...
-    mission: 'Design your own universe with Quill\'s collaboration engine.', // also
-    description: 'RolePlayGateway helps you collaborate with fellow writers to create your own world. We\'ve created a set of roleplaying tools to help you organize your worlds and write with your fellow authors.',
+    pitch: 'Tell great stories.',
+    synopsis: 'Quill is a next-generation writing tool for imagineers.', // and this...
+    mission: 'Quill is a next-generation writing tool for imagineers.', // also
+    description: 'Quill is a next-generation writing tool that works anywhere and everywhere.  Organize your writing with our intuitive interface, connecting concepts for your readers like never before.',
     about: 'Quill is built with <i class="heart icon"></i><em>love</em> by <a href="https://maki.io/people">a diverse community of makers</a> from all around the world.  We\'re designing an all-new way to publish things on the web.  <a href="https://maki.io/topics/quill">Learn More &raquo;</a>',
     copyright: '&copy; 2017 Quill, Inc.<br /><small>All Rights Reserved.</small>',
     masthead: 'https://www.roleplaygateway.com/images/sea-of-stars.jpg',
