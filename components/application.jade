@@ -1,18 +1,24 @@
 dom-module#maki-application
-  style.
-    #navigation {
-      width: 100%;
-    }
-  
   template
+    style.
+      :host ::content .brand {
+        font-family: 'Playball', cursive;
+        font-size: 1.2em;
+        color: #fff;
+      }
+      
+      :host ::content maki-navbar .logo.item img {
+        margin-right: 0.5em !important;
+      }
+
     maki-content-store(name="#{config.service.namespace}")
     maki-datastore(name="#{config.service.namespace}", for="#{config.service.namespace}")
     maki-channel(autoconnect, reconnect="true")
     //-maki-service
     //-maki-peer-manager(autoconnect, limit="128", strategy="lowest-latency")
     
-    maki-navbar.ui.large.top.fixed.hidden.menu
-    maki-navbar.ui.vertical.inverted.sidebar.right.large.menu
+    //-maki-navbar.ui.large.top.fixed.hidden.menu
+    //-maki-navbar.ui.vertical.inverted.sidebar.right.large.menu
     
     .pusher
       maki-masthead
