@@ -4,9 +4,13 @@ dom-module#quill-footer
       :host ::content .left.aligned {
         text-align: left;
       }
+      
+      :host ::content .top-padded.column {
+        padding-top: 4em !important;
+      }
 
     .ui.center.aligned.stackable.grid
-      .six.wide.column
+      .six.wide.column.top-padded
         h4.ui.inverted.left.aligned.header What is this?
         p.left.aligned !{config.service.about}
 
