@@ -1,7 +1,12 @@
-dom-module#maki-masthead
+dom-module#quill-masthead
   style.
     .top-padded {
       margin-top: 4em;
+    }
+    
+    .extra.top-padded {
+      margin-top: 8em;
+      margin-bottom: 4em;
     }
 
   if (config.service.masthead)
@@ -18,8 +23,8 @@ dom-module#maki-masthead
   template
     .ui.inverted.vertical.masthead.segment
       .ui.container
-        maki-navbar.ui.large.secondary.inverted.pointing.menu
-      .ui.text.container
+        //-quill-navbar.ui.large.secondary.inverted.pointing.menu
+      .ui.text.container.extra.top-padded
         .ui.center.aligned.inverted.segment
           h1.ui.inverted.header !{config.service.pitch}
           h2.ui.inverted.header !{config.service.mission}
@@ -46,7 +51,7 @@ dom-module#maki-masthead
 
   script.
     Polymer({
-      is: 'maki-masthead',
+      is: 'quill-masthead',
       ready: function() {
         console.log('[MAKI:MASTHEAD]', 'ready');
       }

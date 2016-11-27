@@ -4,11 +4,11 @@ module.exports = {
     icon: 'pencil', // pick from: http://semantic-ui.com/elements/icon.html
     pitch: 'Tell great stories.',
     synopsis: 'Quill is a next-generation writing tool.', // and this...
-    mission: 'Quill is a next-generation writing tool.', // also
+    mission: '<span class="brand">Quill</span> is a next-generation writing tool<br /> carefully hand-crafted for your needs.', // also
     description: 'Quill is a next-generation writing tool that works anywhere and everywhere.  Organize your writing with our intuitive interface, connecting concepts for your readers like never before.',
-    about: 'Quill is built with <i class="heart icon"></i><em>love</em> by <a href="https://maki.io/people">a diverse community of makers</a> from all around the world.  We\'re designing an all-new way to publish things on the web.  <a href="https://maki.io/topics/quill">Learn More &raquo;</a>',
-    copyright: '&copy; 2017 Quill, Inc.<br /><small>All Rights Reserved.</small>',
-    masthead: 'https://www.roleplaygateway.com/images/sea-of-stars.jpg',
+    about: 'Quill is built with <i class="heart icon"></i><em>love</em> by <a href="https://maki.io/people">a diverse community of makers</a> from all around the world.  We\'re designing an all-new way to publish things on the web.  <a class="ui mini primary unpadded button" href="https://maki.io/topics/quill">Learn More &raquo;</a>',
+    copyright: '&copy; 2017 Quill, Inc.</small>',
+    masthead: 'images/typewriter.jpg',
     cta: {
       component: '<maki-waiting-list src="/subscriptions"></maki-waiting-list>'
     },

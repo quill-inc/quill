@@ -1,31 +1,19 @@
-dom-module#maki-footer
+dom-module#quill-footer
   template
-    .ui.stackable.inverted.equal.height.stackable.grid
-      .three.wide.column
-        h4.ui.inverted.header Elsewhere
-        .ui.inverted.link.list
-          a.item(href="https://github.com/RolePlayGateway/quill", rel="me")
-            i.icon.github
-            |  GitHub
-          a.item(href="https://twitter.com/RolePlayGateway", rel="me")
-            i.icon.twitter
-            |  Twitter
-          a.item(href="https://facebook.com/RolePlayGateway", rel="me")
-            i.icon.facebook
-            |  Facebook
-      .eight.wide.column
-        h4.ui.inverted.header About
-        p !{config.service.about}
-      .one.wide.column
-      .four.wide.column
-        h4.ui.inverted.header
-          i.icon.copyright
-        p !{config.service.copyright}
+    style.
+      :host ::content .left.aligned {
+        text-align: left;
+      }
+  
+    .ui.center.aligned.stackable.grid
+      .six.wide.column
+        h4.ui.inverted.left.aligned.header What is this?
+        p.left.aligned !{config.service.about}
 
   script.
     Polymer({
-      is: 'maki-footer',
+      is: 'quill-footer',
       ready: function() {
-        console.log('[MAKI:FOOTER]', 'ready');
+        console.log('[QUILL:FOOTER]', 'ready');
       }
     });
