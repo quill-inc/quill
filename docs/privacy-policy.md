@@ -47,11 +47,12 @@ while session cookies expire when you close your browser.  [For example, we
 store a persistent cookie to track [_____]].
 
 #### 2. Information you provide us by registering for an account
-In addition to the information provided automatically by your browser when you visit the
-Site, to become a subscriber to the Service you will need to create a personal profile.  You
-can create a profile by registering with the Service and entering your email address, and
-creating a user name and a password.  By registering, you are authorizing us to collect,
-store and use your email address in accordance with this Privacy Policy.
+In addition to the information provided automatically by your browser when you
+visit the Site, to become a subscriber to the Service you will need to create a
+personal profile.  You can create a profile by registering with the Service and
+entering your email address, and creating a user name and a password.  By
+registering, you are authorizing us to collect, store and use your email address
+in accordance with this Privacy Policy.
 
 ### II. HOW WE USE AND SHARE INFORMATION
 #### Personal Information
