@@ -175,6 +175,7 @@ dom-module#maki-application
         });
       },
       ready: function() {
+        console.log('[QUILL:APPLICATION]', 'ready');
         document.addEventListener('datastore:open', function() {
           self.datastore = document.querySelector('maki-datastore');
           self.datastore._sync();

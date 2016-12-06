@@ -30,24 +30,8 @@ dom-module#quill-masthead
           h2.ui.inverted.header !{config.service.mission}
 
           .content.top-padded
-            if (config.service.cta)
-              if (config.service.cta.component)
-                | !{config.service.cta.component}
-              else
-                if (config.service.cta.icon)
-                  - var cta = config.service.cta
-                  a.ui.massive.centered.right.labeled.green.icon.button(href="#{cta.link}")
-                    i.right.chevron.icon(class="#{cta.icon}")
-                    | !{cta.text}
-                else
-                  a.ui.massive.fluid.green.button(href="#{cta.link}") #{cta.text}
-            else
-              .ui.two.huge.buttons
-                a.ui.huge.primary.button(href="/examples") See the Examples
-                .or
-                a.ui.huge.green.right.labeled.icon.button(href="/people")
-                  | Meet the Community
-                  i.right.chevron.icon
+            maki-waiting-list(src="/subscriptions")
+
 
   script.
     Polymer({
