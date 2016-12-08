@@ -1,0 +1,19 @@
+dom-module#quill-doc
+  template
+    style.
+      :host > .segment {
+        margin-top: 1em !important;
+        margin-bottom: 1em !important;
+      }
+    .ui.text.container.segment
+      quill-reader(src="{{src}}")
+  script.
+    Polymer({
+      is: 'quill-doc',
+      properties: {
+        src: { type: String }
+      },
+      ready: function() {
+        console.log('[QUILL:DOC]', 'ready');
+      }
+    });

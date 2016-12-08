@@ -6,6 +6,27 @@ dom-module#maki-application
         font-size: 1.2em;
         color: #fff;
         margin-right: 0.2em;
+        -webkit-transition-property: text-shadow;
+        -webkit-transition-duration: 1s;
+        -webkit-transition-timing-function: ease-in-out;
+        transition-property: text-shadow;
+        transition-duration: 1s;
+        transition-timing-function: ease-in-out;
+      }
+      
+      :host ::content .brand:hover {
+        color: #fff;
+        text-shadow: 0 0 0.5em #fff;
+        -webkit-transition-property: text-shadow;
+        -webkit-transition-duration: 1s;
+        -webkit-transition-timing-function: ease-in-out;
+        transition-property: text-shadow;
+        transition-duration: 1s;
+        transition-timing-function: ease-in-out;
+      }
+      
+      ::host ::content .top-padded.segment {
+        margin-top: 4em;
       }
       
       :host ::content maki-navbar .logo.item img {
@@ -22,6 +43,9 @@ dom-module#maki-application
     //-maki-navbar.ui.vertical.inverted.sidebar.right.large.menu
 
     quill-masthead
+    
+    maki-viewport#viewport
+      //-quill-reader.ui.segment.text.container
 
     .ui.inverted.vertical.footer.segment
       .ui.container
@@ -37,72 +61,61 @@ dom-module#maki-application
     window.maki = Polymer({
       is: 'maki-application',
       properties: {
-        src: {
-          type: String
-        },
-        for: {
-          type: String
-        },
-        route: {
-          type: String
-        },
-        routes: {
-          type: Object,
-          value: {}
-        },
-        components: {
-          type: Object,
-          value: {}
-        },
-        resources: {
-          type: Object,
-          observer: '_resourcesUpdated'
-        },
-        datastore: {
-          type: Object
-        },
+        src: { type: String },
+        for: { type: String },
+        route: { type: String },
+        routes: { type: Object, value: {} },
+        components: { type: Object, value: {} },
+        resources: { type: Object, observer: '_resourcesUpdated' },
+        datastore: { type: Object },
         worker: { type: Object },
-        identity: {
-          type: Object,
-          notify: true
-        },
+        identity: { type: Object, notify: true },
         state: { type: String }
       },
       _pathToResource: function(path) {
         var self = this;
         var resource = null;
-        console.log('[MAKI:APPLICATION]', '_pathToResource', path);
+        
+        console.log('[QUILL:APPLICATION]', '_pathToResource', path);
+        
         for (var route in self.routes) {
           var regex = self.routes[route];
-          console.log('[MAKI:APPLICATION]', '_pathToResource', 'testing', regex);
+          
+          console.log('[QUILL:APPLICATION]', '_pathToResource', 'testing', regex);
+          
           if (regex.test(path)) {
             resource = self.resourceMap[route];
             break;
           }
         }
 
-        console.log('[MAKI-APPLICATION]', '_pathToResource', path, 'finally:', resource);
+        console.log('[QUILL:APPLICATION]', '_pathToResource', path, 'finally:', resource);
         
         return resource;
       },
       _route: function(ctx) {
         var self = this;
-        var viewport = document.querySelector('[for=viewport]');
+        var viewport = this.$.viewport;
         var component = 'maki-undefined';
         var view = null;
+
         for (var route in self.routes) {
           var regex = self.routes[route];
-          console.log('[MAKI:APPLICATION]', '_route', 'routing', route, regex);
-          console.log('[MAKI:APPLICATION]', '_route', 'comparing...', ctx.path);
+          
+          console.log('[QUILL:APPLICATION]', '_route', 'routing', route, regex);
+          console.log('[QUILL:APPLICATION]', '_route', 'comparing...', ctx.path);
+          
           if (regex.test(ctx.path)) {
             component = self.components[route];
-            console.log('[MAKI:APPLICATION]', '_route', 'found:', component);
             view = document.createElement(component);
+            
+            console.log('[QUILL:APPLICATION]', '_route', 'found:', component);
+            console.log('[QUILL:APPLICATION]', '_route', 'selected:', view);
+
             view.action = self.actionMap[route];
             view.type = self.resourceMap[route];
             view.type.route = route;
-            
-            console.log('[MAKI:APPLICATION]', '_route', 'selected:', view);
+
             break;
           }
         }
@@ -113,9 +126,11 @@ dom-module#maki-application
         
         view.setAttribute('src', ctx.path);
         view.setAttribute('type', view.type);
+
         while (viewport.hasChildNodes()) {
           viewport.removeChild(viewport.lastChild);
         }
+
         viewport.appendChild(view);
 
       },
@@ -126,25 +141,26 @@ dom-module#maki-application
       _resourcesUpdated: function(resources) {
         var self = this;
         var _route = self._route.bind(self);
+        
         self.resourceMap = {};
         self.actionMap = {};
+        
+        console.log('[QUILL:APPLICATION]', '_resourcesUpdated', resources);
+        
         Object.keys(resources).forEach(function(name) {
-          //var resource = resources[name];
-          var resource = document.createElement('maki-resource');
           var definition = resources[name];
           
-          resource.name = name;
-          resource.definition = definition;
+          console.log('[QUILL:APPLICATION]', '_resourcesUpdated', 'definition', definition);
           
-          resource._load();
-
           ['get', 'query'].forEach(function(action) {
             var route = definition.routes[action];
             if (!route) return;
+            
             self.routes[route] = new RegExp(eval(definition.paths[action]));
             self.components[route] = definition.components[action];
-            self.resourceMap[route] = resource;
+            self.resourceMap[route] = definition;
             self.actionMap[route] = action;
+            
             page(route, _route);
           });
         });
@@ -159,6 +175,7 @@ dom-module#maki-application
       },
       created: function() {
         var self = this;
+        console.log('[QUILL:APPLICATION]', 'created');
         self.route = window.location.pathname;
         //self.worker = new Worker('/worker.js');
         // load the application configuration
@@ -176,6 +193,11 @@ dom-module#maki-application
       },
       ready: function() {
         console.log('[QUILL:APPLICATION]', 'ready');
+        return;
+        
+        
+        self.identity = {};
+        
         document.addEventListener('datastore:open', function() {
           self.datastore = document.querySelector('maki-datastore');
           self.datastore._sync();

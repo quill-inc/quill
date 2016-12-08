@@ -26,6 +26,7 @@
     "maki": "git://github.com/martindale/maki#0.3",
     "maki-auth-simple": "^0.1.1",
     "maki-client-level": "^0.1.0",
+    "maki-client-markdown": "martindale/maki-client-markdown",
     "maki-passport-local": "0.0.4"
   }
 }
